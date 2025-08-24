@@ -1,17 +1,16 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
 const Navbar = () => {
   const { user } = useUser();
   return (
-    <div className="">
+    <div className="flex items-center justify-between px-10 py-3">
       {user && (
-        <h1>
+        <h1 className="text-2xl font-semibold">
           {user.firstName}
           {`'s`} Space
         </h1>
-      )}
+      )} 
       {/* Breadcrumbs */}
 
       <div>

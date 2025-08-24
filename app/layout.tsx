@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Navbar from "./Components/Header/Navbar";
+import Navbar from "../components/Header/Navbar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 export const metadata: Metadata = {
   title: "Homepage",
@@ -16,8 +17,16 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <Navbar />
-        <body>{children}</body>
+        <body>
+          <Navbar />
+          <div className="flex min-h-screen">
+            {/* Sidebar */}
+            <Sidebar />
+            <div className="flex-1 overflow-y-auto p-4 bg-gray-100 scrollbar-hidden">
+              {children}
+            </div>
+          </div>
+        </body>
       </html>
     </ClerkProvider>
   );
